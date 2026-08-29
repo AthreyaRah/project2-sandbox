@@ -1,4 +1,4 @@
-import re
+import re, argparse
 
 def normalize_merchant(raw_string: str) -> tuple[str, str, str]:
     raw_string = raw_string.lower()
@@ -12,8 +12,13 @@ def normalize_merchant(raw_string: str) -> tuple[str, str, str]:
         reason = "Invalid merchant name"
         return "",status, reason
 
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("raw_string")
+    args = parser.parse_args()
+    print(normalize_merchant(args.raw_string))
 
-print(normalize_merchant("SWIGGY*ORDER8827"))
-print(normalize_merchant("AMAZON PAY"))
-print(normalize_merchant("1234567890"))
+
+if __name__ == '__main__':
+    main()
 
