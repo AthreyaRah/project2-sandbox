@@ -1,0 +1,11 @@
+Date,Amount,Description
+31-08-2026,"1,234.50",Swiggy*Order8827
+01-01-25,45.00,Amazon Pay
+15/06/2024,0,HDFC-Bank
+2026-08-31,0.09,Zomato Order
+31/08/26,"12,34,567.80",Uber Ride
+,500,Missing date value
+02-02-2026,USD 300,Netflix Subscription
+03-03-2026,,Missing amount value
+04-04-2026,999999,garbage!!!123
+05-05-2026,10.5,invoice31-08-2026ref

@@ -1,4 +1,6 @@
 import re, argparse
+from pathlib import Path
+import csv
 
 def normalize_merchant(raw_string: str) -> tuple[str, str, str]:
     raw_string = raw_string.lower()
@@ -18,11 +20,23 @@ def main():
     # args = parser.parse_args()
     # print(normalize_merchant(args.raw_string))
 
-    print(is_date("26-08-31"))
-    print(is_amount("0.09"))
+    cols = read_input("dummy_expenses.csv")
+    print(detect_columns(cols[0]))
 
-    print(detect_columns(["31-08-2026", "01-01-25", "15/06/2024", "31-08-2026"]))
-    print(detect_columns(["1,234.50", "0", "USD 300", "45.00"]))
+
+def read_input(filepath):
+    filepath = Path(filepath)
+    with open(filepath,"r") as f:
+        reader = csv.reader(f)
+        header = next(reader)
+        total_columns = len(header)
+        columns = [[] for _ in range(total_columns)]
+        for row in reader:
+            for i in range(0,len(row)):
+                columns[i].append(row[i])
+
+    return columns
+
 
 
 def is_date(value: str) -> bool:
