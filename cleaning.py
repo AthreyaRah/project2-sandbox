@@ -11,7 +11,7 @@ def is_date(value: str) -> bool:
 
 
 def is_amount(value: str) -> bool:
-    return re.match(r"(\d+,)*\d+(\.\d+)*$", value) is not None
+    return re.match(r"(\d+,)*\d+(\.\d+)?$", value) is not None
 
 
 def detect_columns(column_values: list[str]) -> str:
